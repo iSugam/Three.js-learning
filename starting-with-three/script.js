@@ -31,7 +31,7 @@ const pointLight = new THREE.PointLight(0xffffff, 1, 30);
 const spotLight = new THREE.SpotLight(0xffffff, 1, 30);
 
 ambientLight.position.set(1, 2, 1);
-directionaltLight.position.set(1, 0, 0);
+directionaltLight.position.x = 2;
 pointLight.position.set(5, 5, 5);
 spotLight.position.set(4, 2, 4);
 
@@ -56,11 +56,11 @@ scene.add(earth);
 // Render the scene and camera
 renderer.render(scene, camera);
 
-// Recursive function for keep rendering the screen
+// Recursive function for keep re-rendering the screen
 const animate = () => {
     requestAnimationFrame(animate)
 
-    earth.rotation.y += 0.02
+    earth.rotation.y += 0.005
     renderer.render(scene, camera);
 }
 animate()
