@@ -60,7 +60,10 @@ renderer.render(scene, camera);
 const animate = () => {
     requestAnimationFrame(animate)
 
-    earth.rotation.y += 0.005
+    let time = Date.now() * 1;
+    directionaltLight.position.x = Math.cos(time * 0.0001) * 30;
+    directionaltLight.position.y = Math.sin(time * 0.0001) * 30;
+    earth.rotation.y += 0.005;
     renderer.render(scene, camera);
 }
 animate()
